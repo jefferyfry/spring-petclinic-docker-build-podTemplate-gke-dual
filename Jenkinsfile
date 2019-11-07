@@ -3,8 +3,7 @@ pipeline {
   agent {
     kubernetes {
         label 'docker-build-pod-hybrid'
-        yamlFile 'podTemplate/spring-petclinic-docker-build-hybrid.yaml'
-        idleMinutes 120
+        yamlFile 'podTemplate/spring-petclinic-docker-build-dual.yaml'
     }
   }
   stages {
