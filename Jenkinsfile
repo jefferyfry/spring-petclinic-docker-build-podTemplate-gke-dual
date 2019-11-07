@@ -27,8 +27,14 @@ pipeline {
           withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
             sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
             sh 'docker push jefferyfry/spring-petclinic:latest'
-            sh 'mvn clean'
           }
+        }
+      }
+    }
+    stage('Maven Clean') {
+      steps {
+        container('maven') {
+          sh 'mvn clean'
         }
       }
     }
