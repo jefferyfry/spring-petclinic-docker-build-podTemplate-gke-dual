@@ -4,7 +4,6 @@ pipeline {
     kubernetes {
         label 'docker-build-pod-hybrid'
         yamlFile 'podTemplate/spring-petclinic-docker-build-dual.yaml'
-        idleMinutes 120
     }
   }
   stages {
